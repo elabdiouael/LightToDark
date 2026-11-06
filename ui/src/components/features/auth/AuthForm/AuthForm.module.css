@@ -1,0 +1,62 @@
+.formContainer {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Kn-st3mlo glass-panel mn globals.css */
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    background: linear-gradient(to right, #fff, var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.submitBtn {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-cyan));
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+}
+
+.submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 243, 255, 0.3);
+}
+
+.toggleText {
+    margin-top: 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.toggleText span {
+    color: var(--accent-cyan);
+    font-weight: bold;
+}
+
+.error {
+    color: #ff4757;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
