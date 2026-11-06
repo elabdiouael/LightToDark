@@ -1,0 +1,73 @@
+1. Les Idées "Herbaaaana" (Core Features)
+A. "Wird" Progression System (Gamification Respectueuse)
+
+L-Fikra: B7al system dial rating (ELO) f les jeux stratégiques, mais hna dial l-istimrariya (Consistency). L-9ari2 kakhod des points "Nour" 3la kol saf7a, w kayn bonus ila 9ra f we9t sda3 (b7al l-fjer awla 9bel y3ess).
+
+Visualisation: Progress dial l-Khatma machi ghir pourcentage 3adi (20%), mais un chemin (Journey) animé. Kol ma katsali surah, kaytft7 niveau jdid.
+
+B. Duo Khatma (Co-op Mode)
+
+L-Fikra: Bghiti te9ra nta w l-walid dyalek awla nta w sa7bek khatma we7da? T9der t-creyi "Room" dial Khatma. Kol wa7ed kaye9ra 7izb awla jouz2, w l-progress kayt-cocha 3end l-akhor f real-time. Hada kaykhel9 wa7ed l-motovation dyal "khassni ne9ra bach ma n3etlech صاحبي".
+
+C. Cinematic Focus Mode & Word-by-Word
+
+L-Fikra: Mli kat-lancer l-9ir2a, l-interface katn9a (zero distractions). L-audio dyal l-mou9ri2 (par ex: Alafasy) kayt-syncreza m3a l-ayat.
+
+Word-by-Word: B l-API dial Quran.com li fih l-morphologie, l-kelma li kaye9ra l-mou9ri2 kat-highlighta (tdwi). Ila l-utilisateur ma fhemch chi kelma, kay-clicki 3liha kat3tih "Tafsir" dial dik l-kelma b dabt f pop-up sghir (Glassmorphism effect).
+
+D. Journaling & "Ayah of the Day" Reflection
+
+L-Fikra: Mli kat3tih dik l-Ayah random, ma kay9rahach w yzouf. Kayn ta7tha wa7ed l-bloc-notes privé, y9der ykteb fih "Khawatir" dyalo (kifach had l-ayah 9asso lyoum awla chno t3ellem mnha). Hadchi kayخليk t-interagi m3a l-Quran machi ghir te9rah b zerba.
+
+2. UI / UX & Design Specifications
+Hna fin ghadi nbanou! L-UI khasso ykoun premium, chill, w mbowe9 b l'animation:
+
+Styling: Pure CSS (Zero Tailwind, kima l-3ada). CSS Modules bach koul component ykoun m-isolé w n9i.
+
+Thème: Dark Mode complet. Les couleurs dial l-accent ghadi ykounou wa7ed l-mélange sghir dial Neon Cyan w Royal Blue (kay3tiw vibe relaxant w futuriste).
+
+Glassmorphism: Les widgets (b7al Tafsir pop-up, l-audio player) ykounou b effet de verre (blur-backdrop) fo9 l-background.
+
+Animations: framer-motion bach les transitions bin les souwar, awla l-popup dyal tafsir, ykounou smooth bzaaaf. Custom Cursor khfif ytbdel mli t-hoveri 3la l-Ayat.
+
+3D Touch (Optional): Fl-background dyal "Focus Mode", t9der tdir chi canvas khfif b Three.js (chi objet 3D b7al hilal ola particles kayt7erko bchwiya fl-khelfiya) bach ydakhel l-9ari2 f "Zone" dyal l-khoucho3.
+
+3. User Flow (Kifach ghadi tmcha l'App)
+Step 1: Onboarding (Awel dekhela)
+
+L'app katsowlo: "Chno l-hadaf dyalek?" (Khatma f ch'her? Hifd? awla ghir Wird yawmi dial 15 min?).
+
+Kikhtar l-mou9ri2 l-mofadel dyalo w l-lugha/tafsir li bgha.
+
+Step 2: L-Dashboard (The Hub)
+
+Widgets b glassmorphism msttfin:
+
+Widget 1: L-Wird dyal lyoum (Bouton kbir: "Continuer mn Surat Al-Baqarah Ayah 25").
+
+Widget 2: "Ayah of the Day" m3a bouton "Ta2ammoul" (Reflection).
+
+Widget 3: Stats dyalo (Ch7al mn nhar mtabe3 = Streak, ch7al mn point Nour 3endo).
+
+Step 3: L-Reading Interface (The Core)
+
+Ayat kbar b kht 3arabi m9ad (Uthmani script).
+
+Controls l-te7t (Play audio, select reciter, change Tafsir).
+
+Double-click 3la Ayah = Kat3tik Tafsir complet (Jalalayn etc.).
+
+Single-click 3la kelma = Translation/Morphologie.
+
+4. Architecture & Technical Strategy (Backend / Frontend)
+Bima annana makhdaminch b code daba, ha kifach ghadi t-architecter hadchi bach l-app tkoun saroukh w s7i7a:
+
+Backend (Spring Boot 3 + PostgreSQL):
+
+Spring Boot machi hwa li ghadi ystocker l-Quran. Spring Boot ghadi ykoun BFF (Backend For Frontend) / Orchestrator.
+
+L-Khdma dyalo: Kay-fetchi data mn API Al Quran Cloud w Quran.com, kay-cachiha (Redis) bach mli y-demander l-frontend Surat l-Kahf l-merra jaya, Spring Boot yredha f ms machi ytsna l-API l-berrani.
+
+Spring Security + JWT: Bach t-gérer les utilisateurs, les streaks dyalhoum, w l-progress dyal l-Khatma.
+
+Database (PostgreSQL): Ghadi tsavi fiha ghir l-users, les stats dyalhoum, "Khawatir" (notes), w les Rooms dial "Duo Khatma".
